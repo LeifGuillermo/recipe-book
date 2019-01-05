@@ -6,17 +6,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() doRouting = new EventEmitter<{recipes: boolean, shoppingList: boolean}>();
-  currentState = {recipes: true, shoppingList: false};
+  @Output() navClick = new EventEmitter<string>();
 
-  recipesLinkClicked () {
-    console.log('recipesLinkClicked');
-    this.doRouting.emit({recipes: true, shoppingList: false});
-  }
-
-  shoppingListLinkClicked () {
-    console.log('shoppingListLinkClicked');
-    this.doRouting.emit({recipes: false, shoppingList: true});
+  onNavClick(destination: string) {
+    this.navClick.emit(destination);
   }
 
   constructor() { }

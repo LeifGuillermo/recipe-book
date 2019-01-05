@@ -6,14 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  display = {
-    recipes: true,
-    shoppingList: false
-  };
+  displayedFeature = 'recipes';
 
-  routeToPage (display: {recipes: boolean, shoppingList: boolean}) {
-    console.log(display);
-    this.display.recipes = display.recipes;
-    this.display.shoppingList = display.shoppingList;
+  navigate (destination) {
+    this.displayedFeature = destination;
   }
 }
