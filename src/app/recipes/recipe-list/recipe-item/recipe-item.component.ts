@@ -9,10 +9,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class RecipeItemComponent {
   @Input() recipe: Recipe;
 
-  @Output() recipeItemClicked = new EventEmitter<Recipe>();
+  @Output() recipeItemClicked = new EventEmitter<void>();
 
   onRecipeClick() {
-    this.recipeItemClicked.emit(this.recipe);
+    this.recipeItemClicked.emit();
   }
 
   constructor () {}

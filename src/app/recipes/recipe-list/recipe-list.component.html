@@ -9,8 +9,8 @@
   href="#"
   class="col-xs-12">
       <app-recipe-item
-        (recipeItemClicked)="selectedRecipe($event)"
         *ngFor="let recipeEl of recipes"
-        [recipe]="recipeEl"></app-recipe-item>
+        [recipe]="recipeEl"
+        (recipeItemClicked)="selectedRecipe(recipeEl)"></app-recipe-item>
   </div>
 </div>
