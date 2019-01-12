@@ -5,11 +5,21 @@
 </div>
 <hr>
 <div class="row">
+  <p class="col-xs-12">
+    <input 
+      appInputDebounceKeyUp
+      autofocus
+      placeholder="Search"
+      label="search" 
+      alt="Search for a recipe." 
+      name="recipeSearch" 
+      type="text"/>
+  </p>
   <div
   href="#"
   class="col-xs-12">
       <app-recipe-item
-        *ngFor="let recipeEl of recipes"
+        *ngFor="let recipeEl of visibleRecipes"
         [recipe]="recipeEl"
         (recipeItemClicked)="selectedRecipe(recipeEl)"></app-recipe-item>
   </div>

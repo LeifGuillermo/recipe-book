@@ -1,3 +1,4 @@
+import { DebounceKeyUpDirective } from './shared/debounce.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -26,7 +27,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
     RecipeItemComponent,
     RecipeListComponent,
 
-    DropdownDirective
+    DropdownDirective,
+    DebounceKeyUpDirective
   ],
   imports: [
     BrowserModule,
