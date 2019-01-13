@@ -1,15 +1,14 @@
-import { RecipeSearchService } from './recipe-search.service';
-import { Directive, ElementRef, HostListener, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { RecipeSearchService } from '../services/recipe-search.service';
+import { Directive, ElementRef, HostListener, OnInit, EventEmitter, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Directive ({
     selector: '[appInputDebounceKeyUp]',
 })
-//TODO: Rename SearchDirective since this is going to be more than just debouncing.
-export class DebounceKeyUpDirective implements OnInit {
-    debounceRecipeSearch = new EventEmitter<void>();
+export class RecipeSearchDirective implements OnInit {
     @Input('appInputDebounceKeyUp') debounceTime: number;
+    private debounceRecipeSearch = new EventEmitter<void>();
     private defaultDebounceTime = 5000;
     private subscription: Subscription;
 
