@@ -1,6 +1,6 @@
 import { RecipeSearchService } from './../../shared/recipe-search.service';
 import { Recipe } from './../recipe.model';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-recipe-list',

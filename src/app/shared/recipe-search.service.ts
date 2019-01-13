@@ -7,6 +7,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class RecipeSearchService {
   searchValueUpdated = new EventEmitter<string>();
   searchValueCleared = new EventEmitter<void>();
+  debounceRecipeSearch = new EventEmitter<{}>();
 
   public updateSearch(newSearchValue: string) {
     this.searchValueUpdated.emit(newSearchValue);
