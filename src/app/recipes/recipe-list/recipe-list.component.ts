@@ -6,7 +6,6 @@ import { Component, Output, EventEmitter } from '@angular/core';
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html'
 })
-
 export class RecipeListComponent {
   testRecipeImageLink = 'https://www.maxpixel.net/static/photo/2x/Substantial-Lunch-Eat-Fry-Up-Paella-Rice-Ladle-529592.jpg';
   recipes: Recipe[] = [
@@ -23,7 +22,8 @@ export class RecipeListComponent {
 
   constructor (private recipeSearchService: RecipeSearchService) {
     recipeSearchService.searchValueUpdated.subscribe(
-      (newSearchVal: string) => this.updateVisibleRecipes(newSearchVal)
+      (newSearchVal: string) => this.visibleRecipes
+        = recipeSearchService.updateVisibleRecipes(this.recipes, newSearchVal)
     );
     
   }
@@ -32,18 +32,8 @@ export class RecipeListComponent {
     this.recipeSelected.emit(recipeItem);
   }
 
-  updateVisibleRecipes(searchValue: string) {
-    let tempVisibleRecipes: Recipe[] = this.recipes;
-    if(searchValue === ""){
-      this.visibleRecipes = this.recipes;
-    } else {
-      this.visibleRecipes = tempVisibleRecipes.filter((recipe: Recipe) => {
-        return (recipe.name.search(searchValue) >= 0
-          || recipe.description.search(searchValue) >= 0)
-      });
-    }
+  clearSearch() {
+    this.recipeSearchService.updateSearch("");
+    this.recipeSearchService.clearSearch();
   }
-
-
-
 }
