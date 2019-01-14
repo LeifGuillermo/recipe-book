@@ -19,7 +19,7 @@ export class RecipeSearchService {
 
   public updateVisibleRecipes(recipeList: Recipe[], searchValue: string): Recipe[] {
     let recipes = recipeList;
-    if(searchValue === ""){
+    if(searchValue === ''){
       return recipes;
     } else {
       const searchValues = searchValue.toLowerCase().split(' ');
@@ -27,7 +27,7 @@ export class RecipeSearchService {
         return (searchValues.filter(
             val => ((recipe.name.toLowerCase().includes(val)) 
             || recipe.description.toLowerCase().includes(val))
-            && (val.trim() != "")
+            && (val.trim() !== '')
           )).length > 0;
       });
     }
