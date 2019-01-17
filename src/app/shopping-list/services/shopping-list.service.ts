@@ -1,3 +1,4 @@
+import { Recipe } from './../../recipes/recipe.model';
 import { EventEmitter } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 
@@ -27,6 +28,11 @@ export class ShoppingListService {
 
     public clearIngredients() {
         this.ingredients = [];
+        this.ingredientsChanged.emit(this.ingredients.slice());
+    }
+
+    public addIngredients(ingredients: Ingredient[]) {
+        this.ingredients.push(...ingredients);
         this.ingredientsChanged.emit(this.ingredients.slice());
     }
 }

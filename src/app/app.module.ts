@@ -1,3 +1,4 @@
+import { RecipeService } from './recipes/services/recipe.service';
 import { ShoppingListService } from './shopping-list/services/shopping-list.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
