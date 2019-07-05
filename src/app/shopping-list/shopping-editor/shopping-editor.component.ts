@@ -7,8 +7,8 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
   templateUrl: './shopping-editor.component.html'
 })
 export class ShoppingListEditorComponent {
-  @ViewChild('nameInput') nameInputRef: ElementRef;
-  @ViewChild('amountInput') amountInputRef: ElementRef;
+  @ViewChild('nameInput', { static: true }) nameInputRef: ElementRef;
+  @ViewChild('amountInput', { static: true }) amountInputRef: ElementRef;
 
   onAddItem() {
     this.shoppingListService.addIngredient(new Ingredient(
@@ -25,5 +25,5 @@ export class ShoppingListEditorComponent {
     this.shoppingListService.clearIngredients();
   }
 
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(private shoppingListService: ShoppingListService) { }
 }
