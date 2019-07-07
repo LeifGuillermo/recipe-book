@@ -5,11 +5,7 @@
 </div>
 <hr>
 <div class="row">
-  <div
-  href="#"
-  class="col-xs-12">
-      <app-recipe-item
-        *ngFor="let recipeEl of recipes"
-        [recipe]="recipeEl"></app-recipe-item>
+  <div style="cursor: pointer" class="col-xs-12">
+    <app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl"></app-recipe-item>
   </div>
 </div>

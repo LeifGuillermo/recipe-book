@@ -1,3 +1,4 @@
+import { NoRecipesComponent } from './recipes/no-recipes/no-recipes.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,7 +28,8 @@ import { ShoppingListService } from './shopping-list/services/shopping-list.serv
     RecipeDetailComponent,
     RecipeItemComponent,
     RecipeListComponent,
-    DropdownDirective
+    DropdownDirective,
+    NoRecipesComponent
   ],
   imports: [
     BrowserModule,

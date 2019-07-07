@@ -1,10 +1,10 @@
-<a style="cursor: pointer" class="list-group-item clearfix" (click)="onRecipeClick()">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+<a style="cursor:pointer" class="recipe-item list-group-item clearfix" (click)="onRecipeClick()">
+  <div class="pull-left recipe-item-text">
+    <h4 class="list-group-item-heading recipe-item-title">{{ recipe.name }}</h4>
     <p class="list-group-item-text"> {{ recipe.description }}</p>
   </div>
   <span class="pull-right">
-    <img [src]="recipe.imagePath" alt="Image of {{ recipe.name }}" class="img-responsive"
-         style="max-height: 100px;">
+    <img [src]="recipe.imagePath" alt="Image of {{ recipe.name }}"
+         class="img-responsive recipe-item-image" style="max-height: 100px;">
   </span>
 </a>

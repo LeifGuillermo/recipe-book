@@ -4,7 +4,8 @@ import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
-  templateUrl: './recipe-item.component.html'
+  templateUrl: './recipe-item.component.html',
+  styleUrls: ['./recipe-item.component.css'],
 })
 
 export class RecipeItemComponent {
@@ -14,5 +15,5 @@ export class RecipeItemComponent {
     this.recipeService.recipeSelected.emit(this.recipe);
   }
 
-  constructor (private recipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService) { }
 }
