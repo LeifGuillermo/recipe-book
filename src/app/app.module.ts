@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListEditorComponent } from './shopping-list/shopping-editor/shopping-editor.component';
 import { ShoppingListService } from './shopping-list/services/shopping-list.service';
+import { RecipeLoadGuard } from './recipes/services/recipe-load-guard.service';
 
 
 
@@ -36,7 +37,7 @@ import { ShoppingListService } from './shopping-list/services/shopping-list.serv
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeLoadGuard, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

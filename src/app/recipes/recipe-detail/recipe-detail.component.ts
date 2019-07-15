@@ -1,7 +1,8 @@
 import { RecipeService } from './../services/recipe.service';
-import { Ingredient } from './../../shared/ingredient.model';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,9 +10,21 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent {
-  @Input() recipe: Recipe;
+  private recipe: Recipe;
+  private recipeIdSubscription$: Subscription;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private activatedRoute: ActivatedRoute) {
+    if (this.recipeIdSubscription$) {
+      this.recipeIdSubscription$.unsubscribe();
+    }
+    this.recipeIdSubscription$ = activatedRoute.params.subscribe((params: Params) => {
+      if (params) {
+        const recipeId = params['id'];
+        const recipes = recipeService.getRecipes();
+        this.recipe = recipes[recipeId];
+      }
+    });
+  }
 
   onToShoppingListClick() {
     this.recipeService.sendRecipeToShoppingList(this.recipe);
