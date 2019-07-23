@@ -1,3 +1,4 @@
+import { NoRecipesComponent } from './recipes/no-recipes/no-recipes.component';
 import { NgModule } from '@angular/core';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipesComponent } from './recipes/recipes.component';
@@ -8,9 +9,12 @@ import { RecipeLoadGuard } from './recipes/services/recipe-load-guard.service';
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
-    path: 'recipes', component: RecipesComponent, canActivateChild: [RecipeLoadGuard],
+    path: 'recipes',
+    component: RecipesComponent,
+    canActivateChild: [RecipeLoadGuard],
     children: [
-      { path: ':id', component: RecipeDetailComponent },
+      { path: '', component: NoRecipesComponent },
+      { path: ':id', component: RecipeDetailComponent }
     ]
   },
   { path: 'shopping-list', component: ShoppingListComponent },
@@ -21,4 +25,4 @@ export const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
